@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; carset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	</head>
+
+	<body>
+
+		<div id="box"></div>
+
+		<script type="text/javascript">
+
+			var createdTime;
+			var clickedTime;
+			var reactionTime;
+
+			function makeBox() {
+
+				var time = Math.random();
+
+				time = time * 5000;
+
+				setTimeout(function() {
+					
+					document.getElementById("box").style.display = "block";
+					
+					createdTime = Date.now();
+					
+				}, time);
+
+			}
+
+			makeBox();
+
+			document.getElementById("box").onclick = function() {
+				clickedTime = Date.now();
+
+				reactionTime = (clickedTime - createdTime)/1000;
+
+				alert(reactionTime);
+
+				this.style.display = "none";
+				makeBox();
+			}
+
+		</script>
+
+	</body>
+</html>
