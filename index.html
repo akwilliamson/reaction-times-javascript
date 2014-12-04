@@ -10,6 +10,7 @@
 
 	<body>
 
+		<p>Your time: <span id="time"></span></p>
 		<div id="box"></div>
 
 		<script type="text/javascript">
@@ -29,7 +30,7 @@
 					document.getElementById("box").style.display = "block";
 					
 					createdTime = Date.now();
-					
+
 				}, time);
 
 			}
@@ -41,7 +42,7 @@
 
 				reactionTime = (clickedTime - createdTime)/1000;
 
-				alert(reactionTime);
+				document.getElementById("time").innerHTML = reactionTime;
 
 				this.style.display = "none";
 				makeBox();
